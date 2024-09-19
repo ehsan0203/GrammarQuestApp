@@ -4,9 +4,10 @@ import { PhoneInputComponent } from './phone-input/phone-input.component';
 import { SelectLessonComponent } from './select-lesson/select-lesson.component';
 import { QuestionPageComponent } from './question-page/question-page.component';
 import { ResultComponent } from './result/result.component';
+import { AuthGuard } from './auth.guard'; // گاردی که ساخته‌ایم
 
 export const routes: Routes = [
-    { path: '', component: PhoneInputComponent }, // صفحه اصلی
+    { path: '', component: PhoneInputComponent, canActivate: [AuthGuard] }, // بررسی با AuthGuard
     { path: 'verify-code', component: VerifyCodeComponent }, // صفحه تایید کد
     { path: 'select-lesson', component: SelectLessonComponent },
     { path: 'question', component: QuestionPageComponent },

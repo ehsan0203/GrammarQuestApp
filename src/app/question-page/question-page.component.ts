@@ -62,12 +62,14 @@ selectOption(option: number) {
     // بعد از 2 ثانیه به سوال بعدی بروید
     setTimeout(() => {
       this.nextQuestion();
-    }, 1000); // 2 ثانیه تأخیر
+    }, 500); // 2 ثانیه تأخیر
   } else {
     console.log("Incorrect Answer");
     // اگر جواب اشتباه بود
     this.isCorrectAnswer = false;
+
     this.showExplanationModal(false, currentQuestion.correctAnswerExplanation);
+ // 2 ثانیه تأخیر
   }    
 }
 // ارسال لیست پاسخ‌ها به بک‌اند
@@ -97,7 +99,7 @@ submitAnswers() {
 
   showExplanationModal(isCorrect: boolean, explanation: string) {
     console.log("showExplanationModal Start");
-    this.showExplanation = true;
+    
     console.log("showExplanation is:", this.showExplanation); // بررسی مقدار showExplanation
     this.explanationText = explanation;
   
@@ -113,6 +115,9 @@ submitAnswers() {
         if (correctAnswerElement) {
           correctAnswerElement.classList.add('correct');
         }
+        setTimeout(() => {
+        this.showExplanation = true;
+      }, 1000); // 2 ثانیه تأخیر
       }
     }, 0);
   }

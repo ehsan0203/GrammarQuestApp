@@ -1,0 +1,42 @@
+<div class="container-mobile">
+  <div
+    class="d-flex flex-column justify-content-between align-items-center w-100 h-100"
+  >
+    <h1 class="title">Touchstone 2</h1>
+
+    <!-- نمایش سوال -->
+    <div class="question-box">
+      <p class="question-text">
+        {{ questions[currentQuestionIndex]?.questionText }}
+      </p>
+    </div>
+
+    <!-- گزینه ها -->
+    <div class="options-container">
+      <div class="option option1" (click)="selectOption(1)">
+        {{ questions[currentQuestionIndex]?.option1 }}
+      </div>
+      <div class="option option2" (click)="selectOption(2)">
+        {{ questions[currentQuestionIndex]?.option2 }}
+      </div>
+      <div class="option option3" (click)="selectOption(3)">
+        {{ questions[currentQuestionIndex]?.option3 }}
+      </div>
+      <div class="option option4" (click)="selectOption(4)">
+        {{ questions[currentQuestionIndex]?.option4 }}
+      </div>
+    </div>
+
+    <!-- دکمه بازگشت -->
+    <button class="back-btn" (click)="goBack()">بازگشت</button>
+    <div class="modal" *ngIf="showExplanation">
+      <div class="modal-content">
+        <p>{{ explanationText }}</p>
+        <button (click)="closeModal()">ادامه</button>
+        <!-- اضافه کردن متد closeModal -->
+      </div>
+    </div>
+  </div>
+
+  <!-- مدال توضیحات -->
+</div>

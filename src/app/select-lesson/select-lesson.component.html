@@ -1,0 +1,80 @@
+<div class="container-mobile">
+  <div class="phone-content">
+    <div class="header">
+      <h1 class="title">Touchstone 2</h1>
+      <hr class="divider" />
+    </div>
+
+    <div class="selection-container">
+      <div class="lesson-selection">
+        <div
+          class="lesson"
+          (click)="selectLesson(1)"
+          [ngClass]="{ selected: selectedLesson === 1 }"
+        >
+          درس 1
+        </div>
+        <div
+          class="lesson"
+          (click)="selectLesson(2)"
+          [ngClass]="{ selected: selectedLesson === 2 }"
+        >
+          درس 2
+        </div>
+        <div
+          class="lesson"
+          (click)="selectLesson(3)"
+          [ngClass]="{ selected: selectedLesson === 3 }"
+        >
+          درس 3
+        </div>
+        <div
+          class="lesson"
+          (click)="selectLesson(4)"
+          [ngClass]="{ selected: selectedLesson === 4 }"
+        >
+          درس 4
+        </div>
+      </div>
+
+      <div class="level-selection">
+        <div
+          class="level"
+          (click)="selectLevel(1)"
+          [ngClass]="{ selected: selectedLevel === 1 }"
+        >
+          آسان
+        </div>
+        <div
+          class="level"
+          (click)="selectLevel(2)"
+          [ngClass]="{ selected: selectedLevel === 2 }"
+        >
+          متوسط
+        </div>
+        <div
+          class="level"
+          (click)="selectLevel(3)"
+          [ngClass]="{ selected: selectedLevel === 3 }"
+        >
+          سخت
+        </div>
+        <div
+          class="level"
+          (click)="selectLevel(4)"
+          [ngClass]="{ selected: selectedLevel === 4 }"
+        >
+          خیلی سخت
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="submit-btn px-5 py-3"
+      [disabled]="!isSelectionComplete()"
+      (click)="startQuiz()"
+    >
+      تایید
+    </button>
+  </div>
+</div>

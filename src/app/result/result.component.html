@@ -1,0 +1,27 @@
+<div class="container-mobile">
+  <div
+    class="result-page d-flex flex-column justify-content-center align-items-center"
+  >
+    <h1 class="title">Touchstone 2</h1>
+
+    <div class="score-box w-100 text-center py-4">
+      <p class="mb-4">
+        تعداد جواب درست: <strong>{{ correctAnswers }}</strong>
+      </p>
+    </div>
+
+    <div class="score-box w-100 text-center py-4">
+      <p class="mb-4">
+        تعداد جواب غلط: <strong>{{ incorrectAnswers }}</strong>
+      </p>
+    </div>
+
+    <div class="score-box w-100 text-center py-4">
+      <p class="mb-4">
+        نمره شما: <strong>{{ score }}</strong>
+      </p>
+    </div>
+
+    <button class="btn btn-primary mt-4" (click)="goBack()">بازگشت</button>
+  </div>
+</div>

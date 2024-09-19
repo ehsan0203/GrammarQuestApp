@@ -1,1 +1,113 @@
-/* You can add global styles to this file, and also import other style files */
+/* تعریف متغیرهای رنگ */
+$color-dark-blue: #180161;
+$color-purple: #4F1787;
+$color-pink: #EB3678;
+$color-orange: #FB773C;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+
+  
+  body, html {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .container-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: #4F1787; /* رنگ زمینه */
+    max-width: 480px; /* حداکثر عرض */
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  .phone-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    }
+  .logo {
+    width: 100px;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 30px;
+  }
+  
+  .phone-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .input-container {
+    position: relative;
+  }
+  
+  .phone-input {
+    width: 100%;
+    padding: 12px 50px 12px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    color: #4F1787;
+  }
+  
+  .icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #4F1787;
+  }
+  
+  .submit-btn {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #FB773C; /* رنگ دکمه */
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+  /* استایل‌دهی برای کلاس‌های معتبر و نامعتبر */
+  .invalid {
+    border: 2px solid red;
+  }
+  
+  .valid {
+    border: 2px solid green;
+  }
+  

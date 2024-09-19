@@ -1,0 +1,111 @@
+.title {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .question-box {
+    background-color: #eb3678;
+    width: 90%;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .question-text {
+    color: white;
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: left;
+  }
+  
+  .options-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .option {
+    background-color: #fb773c;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .option:hover {
+    background-color: #ff9966; /* تغییر رنگ با هاور */
+  }
+  .correct {
+    background-color: green;
+    color: white;
+  }
+  
+  .incorrect {
+    background-color: red;
+    color: white;
+  }
+  .back-btn {
+    background-color: #180161;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .back-btn:hover {
+    background-color: #342070;
+  }
+  .modal {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+height: auto;
+    width: 100%;
+    max-width: 480px;
+    background-color: rgba(79, 23, 135, 0.8); /* رنگ پس‌زمینه نیمه‌شفاف */
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* سایه برای جلوه سه‌بعدی */
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* سایه ملایم برای زیبایی */
+    text-align: center;
+    color: #4F1787; /* رنگ اصلی متن */
+    font-family: 'Arial', sans-serif; /* فونت خوانا و ساده */
+  }
+  
+  .modal-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .modal-content button {
+    background-color: #ff7a59; /* رنگ جذاب برای دکمه */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-content button:hover {
+    background-color: #ff5a3c; /* رنگ جذاب‌تر هنگام هاور */
+  }
+  
+  
+  

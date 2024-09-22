@@ -1,0 +1,24 @@
+<div class="container-mobile">
+  <div class="lessons-grid">
+    <div
+      class="lesson"
+      *ngFor="let lesson of lessons"
+      [ngClass]="{ selected: selectedLesson === lesson }"
+      (click)="selectLesson(lesson)"
+    >
+      <span>{{ lesson }}</span>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button
+      class="confirm-button"
+      [disabled]="!selectedLesson"
+      (click)="onConfirmClick()"
+    >
+      تایید
+    </button>
+
+    <button class="back-btn" (click)="onBackClick()">بازگشت</button>
+  </div>
+</div>

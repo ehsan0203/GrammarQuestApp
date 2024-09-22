@@ -17,7 +17,7 @@ export class PhoneInputComponent {
   phoneNumber: string = '';
   isValid: boolean = false;
   isInvalid: boolean = false;
-
+  isLoading: boolean = false; // اضافه کردن حالت لودینگ
   // تزریق Router در constructor
   constructor(private router: Router , private http:HttpClient) {}
 
@@ -34,22 +34,21 @@ export class PhoneInputComponent {
 
   submitPhoneNumber() {
     if (this.isValid) {
-      const apiUrl = `https://localhost:44347/api/Account/SendVerificationCode?phoneNumber=${this.phoneNumber}`;
+      this.isLoading = true; // فعال کردن لودینگ
+
+      const apiUrl = `https://telegram.webchareh.com/api/Account/SendVerificationCode?phoneNumber=${this.phoneNumber}`;
       
       this.http.post(apiUrl, { responseType: 'text' }).subscribe({
         next: (response: any) => {
           console.log('Response code:', response); // اینجا کد دریافتی را لاگ می‌کنیم
-          // ذخیره کد تأیید در localStorage
           localStorage.setItem('verificationCode', response);
-  
-          // ذخیره شماره تلفن در localStorage
           localStorage.setItem('phoneNumber', this.phoneNumber);
-  
-          // هدایت به صفحه تایید کد
+          this.isLoading = false; // خاموش کردن لودینگ بعد از دریافت پاسخ
           this.router.navigate(['/verify-code']);  
         },
         error: (err) => {
           console.error('Error sending verification code:', err);
+          this.isLoading = false; // خاموش کردن لودینگ در صورت بروز خطا
           alert('An error occurred while sending the verification code.');
         }
       });
@@ -57,7 +56,5 @@ export class PhoneInputComponent {
       alert('شماره تلفن نامعتبر است.');
     }
   }
-  
-  
-  
+
 }

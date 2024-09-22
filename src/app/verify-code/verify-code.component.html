@@ -13,7 +13,7 @@
       <div class="input-container">
         <input
           type="text"
-          placeholder="کد تأیید را وارد کنید..."
+          placeholder="کد تأیید را وارد کنید"
           class="code-input text-center"
           [(ngModel)]="verificationCode"
           (input)="validateCode()"
@@ -27,6 +27,12 @@
         />
       </div>
 
+      <!-- نمایش لودینگ در وسط صفحه اگر isLoading true باشد -->
+      <div *ngIf="isLoading" class="loading-overlay">
+        <div class="spinner"></div>
+      </div>
+
+      <!-- نمایش متن لودینگ اگر کد در حال ارسال باشد -->
       <div *ngIf="isLoading" class="loading-spinner">در حال ارسال...</div>
     </form>
   </div>

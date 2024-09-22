@@ -4,6 +4,11 @@
   >
     <h1 class="title">Touchstone 2</h1>
 
+    <!-- نمایش شماره سوال -->
+    <div class="question-number">
+      سوال {{ currentQuestionIndex + 1 }} از {{ questions.length }}
+    </div>
+
     <!-- نمایش سوال -->
     <div class="question-box">
       <p class="question-text">
@@ -13,30 +18,55 @@
 
     <!-- گزینه ها -->
     <div class="options-container">
-      <div class="option option1" (click)="selectOption(1)">
+      <div
+        class="option option1"
+        (click)="selectOption(1)"
+        [ngClass]="{
+          correct: correctAnswer === 'option1',
+          incorrect: selectedOption === 1 && isCorrectAnswer === false
+        }"
+      >
         {{ questions[currentQuestionIndex]?.option1 }}
       </div>
-      <div class="option option2" (click)="selectOption(2)">
+      <div
+        class="option option2"
+        (click)="selectOption(2)"
+        [ngClass]="{
+          correct: correctAnswer === 'option2',
+          incorrect: selectedOption === 2 && isCorrectAnswer === false
+        }"
+      >
         {{ questions[currentQuestionIndex]?.option2 }}
       </div>
-      <div class="option option3" (click)="selectOption(3)">
+      <div
+        class="option option3"
+        (click)="selectOption(3)"
+        [ngClass]="{
+          correct: correctAnswer === 'option3',
+          incorrect: selectedOption === 3 && isCorrectAnswer === false
+        }"
+      >
         {{ questions[currentQuestionIndex]?.option3 }}
       </div>
-      <div class="option option4" (click)="selectOption(4)">
+      <div
+        class="option option4"
+        (click)="selectOption(4)"
+        [ngClass]="{
+          correct: correctAnswer === 'option4',
+          incorrect: selectedOption === 4 && isCorrectAnswer === false
+        }"
+      >
         {{ questions[currentQuestionIndex]?.option4 }}
       </div>
     </div>
 
     <!-- دکمه بازگشت -->
-    <button class="back-btn" (click)="goBack()">بازگشت</button>
+    <button class="back-btn" (click)="goBack()">انصراف</button>
     <div class="modal" *ngIf="showExplanation">
       <div class="modal-content">
         <p>{{ explanationText }}</p>
         <button (click)="closeModal()">ادامه</button>
-        <!-- اضافه کردن متد closeModal -->
       </div>
     </div>
   </div>
-
-  <!-- مدال توضیحات -->
 </div>

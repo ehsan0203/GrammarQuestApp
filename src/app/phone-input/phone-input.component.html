@@ -14,7 +14,7 @@
       <div class="input-container">
         <input
           type="tel"
-          placeholder="شماره تماس خود را وارد کنید..."
+          placeholder="شماره تماس خود را وارد کنید"
           class="phone-input text-center"
           [(ngModel)]="phoneNumber"
           (input)="validatePhoneNumber()"
@@ -26,5 +26,11 @@
         تایید
       </button>
     </form>
+
+    <!-- لودینگ در مرکز صفحه -->
+    <div *ngIf="isLoading" class="loading-overlay">
+      <div class="spinner"></div>
+      <p class="loading-text">لطفا صبر کنید...</p>
+    </div>
   </div>
 </div>

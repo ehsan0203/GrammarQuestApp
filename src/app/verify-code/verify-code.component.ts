@@ -25,39 +25,36 @@ export class VerifyCodeComponent {
     }
   }
   submitVerificationCode() {
-    // دریافت کد تأیید ذخیره شده در localStorage
+    this.isLoading = true; // نمایش لودینگ هنگام ارسال
     const storedCode = localStorage.getItem('verificationCode');
-  
-    // مقایسه کد وارد شده توسط کاربر با کد ذخیره شده
+    
     if (this.verificationCode === storedCode) {
-        const storedPhoneNumber = localStorage.getItem('phoneNumber');  // شماره تلفن ذخیره شده
-        const apiUrl = `https://localhost:44347/api/Account/VerifyCode?phoneNumber=${storedPhoneNumber}`;
-      
-        // ارسال درخواست به API برای تأیید کد
-        this.http.post(apiUrl, { inputCode: this.verificationCode, phoneNumber: storedPhoneNumber })
-            .subscribe({
-                next: (response: any) => {
-                    // بررسی موفقیت آمیز بودن پاسخ API
-                    console.log('Response from API:', response);
-                    if (response && response.userId) {
-                        // ذخیره UserId در localStorage
-                        localStorage.setItem('UserId', response.userId);
-                        
-                        // هدایت به صفحه بعد
-                        this.router.navigate(['/select-lesson']);  // تغییر مسیر به صفحه مورد نظر
-                    } else {
-                        alert('کد تأیید نادرست است.');
-                    }
-                },
-                error: (err) => {
-                    console.error('Error during verification:', err);
-                    alert('خطا در تأیید کد.');
-                }
-            });
+      const storedPhoneNumber = localStorage.getItem('phoneNumber');
+      const apiUrl = `https://telegram.webchareh.com/api/Account/VerifyCode?phoneNumber=${storedPhoneNumber}`;
+  
+      this.http.post(apiUrl, { inputCode: this.verificationCode, phoneNumber: storedPhoneNumber })
+        .subscribe({
+          next: (response: any) => {
+            this.isLoading = false; // خاموش کردن لودینگ بعد از دریافت پاسخ
+  
+            if (response && response.userId) {
+              localStorage.setItem('UserId', response.userId);
+              this.router.navigate(['/select-page']); // تغییر مسیر به صفحه مورد نظر
+            } else {
+              alert('کد تأیید نادرست است.');
+            }
+          },
+          error: (err) => {
+            this.isLoading = false; // خاموش کردن لودینگ در صورت خطا
+            console.error('Error during verification:', err);
+            alert('خطا در تأیید کد.');
+          }
+        });
     } else {
-        // اگر کد نادرست باشد، به کاربر خطا نمایش دهید
-        alert('کد تأیید نادرست است.');
+      this.isLoading = false; // خاموش کردن لودینگ اگر کد نادرست باشد
+      alert('کد تأیید نادرست است.');
     }
-}
+  }
+  
 
 }

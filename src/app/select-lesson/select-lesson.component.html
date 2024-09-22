@@ -69,12 +69,21 @@
       </div>
     </div>
 
-    <button
-      class="submit-btn px-5 py-3"
-      [disabled]="!isSelectionComplete()"
-      (click)="startQuiz()"
-    >
-      تایید
-    </button>
+    <div class="button-container">
+      <button
+        class="submit-btn px-5 py-3"
+        [disabled]="!isSelectionComplete()"
+        (click)="startQuiz()"
+      >
+        تایید
+      </button>
+      <button class="back-btn px-5 py-3" (click)="goBack()">بازگشت</button>
+    </div>
+  </div>
+
+  <!-- نمایش لودینگ هنگام ارسال درخواست به API -->
+  <div *ngIf="isLoading" class="loading-overlay">
+    <div class="spinner"></div>
+    <p class="loading-text">در حال بارگذاری...</p>
   </div>
 </div>

@@ -6,10 +6,15 @@
   
   .question-box {
     background-color: #eb3678;
-    width: 90%;
+    width: 100%;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+    direction: ltr;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .question-text {
@@ -34,11 +39,10 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
+    direction: ltr;
   }
   
-  .option:hover {
-    background-color: #ff9966; /* تغییر رنگ با هاور */
-  }
+
   .correct {
     background-color: green;
     color: white;
@@ -57,10 +61,14 @@
     font-size: 16px;
     cursor: pointer;
     margin-bottom: 20px;
+    width: 90%;
   }
   
   .back-btn:hover {
     background-color: #342070;
+  }
+  .question-number{
+    color: #fff;
   }
   .modal {
     display: block;

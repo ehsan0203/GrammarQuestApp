@@ -39,9 +39,10 @@ selectOption(option: number) {
   console.log("selectOption Start");
   this.selectedOption = option;
   const currentQuestion = this.questions[this.currentQuestionIndex];
-  this.correctAnswer = currentQuestion.correctAnswer; // جواب درست تنظیم می‌شود
+  this.correctAnswer = currentQuestion.correctAnswer;
 
   // ذخیره کردن پاسخ کاربر در لیست
+  console.log("Start Push")
   this.userAnswers.push({
     questionId: currentQuestion.questionId, // فرض اینکه سوالات دارای یک شناسه منحصر به فرد (id) هستند
     isCorrect: `option${option}` === this.correctAnswer,
@@ -50,26 +51,27 @@ selectOption(option: number) {
 
   if (`option${option}` === this.correctAnswer) {
     // اگر جواب درست بود
+    console.log("Correct Answer");
     this.isCorrectAnswer = true;
-
-    // بعد از 0.5 ثانیه به سوال بعدی بروید
+    
+    const correctAnswerElement = document.querySelector(`.${this.correctAnswer}`);
+    if (correctAnswerElement) {
+      correctAnswerElement.classList.add('correct');
+    }
+    
+    // بعد از 2 ثانیه به سوال بعدی بروید
     setTimeout(() => {
       this.nextQuestion();
-    }, 500);
+    }, 500); // 2 ثانیه تأخیر
   } else {
+    console.log("Incorrect Answer");
     // اگر جواب اشتباه بود
     this.isCorrectAnswer = false;
 
-    // ابتدا کلاس گزینه درست را نمایش دهید
-    setTimeout(() => {
-      this.showExplanationModal(false, currentQuestion.correctAnswerExplanation);
-    }, 1000); // نمایش مدال با تأخیر 0.5 ثانیه
-  }
+    this.showExplanationModal(false, currentQuestion.correctAnswerExplanation);
+ // 2 ثانیه تأخیر
+  }    
 }
-
-
-
-
 // ارسال لیست پاسخ‌ها به بک‌اند
 submitAnswers() {
   const answersPayload = {
@@ -79,7 +81,7 @@ submitAnswers() {
 
   console.log(answersPayload);
   
-  this.http.post('https://telegram.webchareh.com/api/Question/SubmitAnswers', answersPayload)
+  this.http.post('https://localhost:44347/api/Question/SubmitAnswers', answersPayload)
     .subscribe(response => {
       console.log('Answers submitted successfully', response);
 
@@ -95,12 +97,31 @@ submitAnswers() {
 
 
 
-
-showExplanationModal(isCorrect: boolean, explanation: string) {
-  this.explanationText = explanation;
-  this.showExplanation = true; // نمایش مدال
-}
-
+  showExplanationModal(isCorrect: boolean, explanation: string) {
+    console.log("showExplanationModal Start");
+    
+    console.log("showExplanation is:", this.showExplanation); // بررسی مقدار showExplanation
+    this.explanationText = explanation;
+  
+    setTimeout(() => {
+      const selectedOptionElement = document.querySelector(`.option${this.selectedOption}`);
+      if (selectedOptionElement) {
+        selectedOptionElement.classList.add(isCorrect ? 'correct' : 'incorrect');
+      }
+  
+      if (!isCorrect) {
+        console.log("Show modal starts");
+        const correctAnswerElement = document.querySelector(`.${this.correctAnswer}`);
+        if (correctAnswerElement) {
+          correctAnswerElement.classList.add('correct');
+        }
+        setTimeout(() => {
+        this.showExplanation = true;
+      }, 1000); // 2 ثانیه تأخیر
+      }
+    }, 0);
+  }
+  
   // رفتن به سوال بعدی
   nextQuestion() {
     console.log("nextQuestion Start")
@@ -123,21 +144,17 @@ showExplanationModal(isCorrect: boolean, explanation: string) {
   }
   // بستن مدال و رفتن به سوال بعدی
   closeModal() {
-    // بستن مدال
     this.showExplanation = false;
-  
-    // پاک کردن کلاس‌های رنگی
+    this.currentQuestionIndex++;
     this.selectedOption = null;
     this.isCorrectAnswer = null;
+
+    // پاک کردن کلاس‌های رنگی
     const options = document.querySelectorAll('.option');
     options.forEach(option => {
       option.classList.remove('correct', 'incorrect');
     });
-  
-    // به سوال بعدی بروید
-    this.nextQuestion();
   }
-  
   // دکمه برای ارسال لیست در هنگام اتمام کوییز
 finishQuiz() {
   if (this.currentQuestionIndex === this.questions.length - 1 || this.currentQuestionIndex === 20) {

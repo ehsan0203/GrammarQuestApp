@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
     // اگر کاربر لاگین کرده و UserId موجود است
     if (userId) {
       // هدایت به صفحه "select-lesson"
-      this.router.navigate(['/select-page']);
+      this.router.navigate(['/select-lesson']);
       return false; // اجازه نمی‌دهد که کاربر به صفحه اصلی دسترسی پیدا کند
     }
 

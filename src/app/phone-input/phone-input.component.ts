@@ -36,7 +36,7 @@ export class PhoneInputComponent {
     if (this.isValid) {
       this.isLoading = true; // فعال کردن لودینگ
 
-      const apiUrl = `https://telegram.webchareh.com/api/Account/SendVerificationCode?phoneNumber=${this.phoneNumber}`;
+      const apiUrl = `https://localhost:44347/api/Account/SendVerificationCode?phoneNumber=${this.phoneNumber}`;
       
       this.http.post(apiUrl, { responseType: 'text' }).subscribe({
         next: (response: any) => {

@@ -1,4 +1,4 @@
-<div class="container-mobile">
+<div class="container-mobile" *ngIf="!isLoading">
   <h2 class="text-white text-center">
     توضیحات درس {{ lessonNumber }} - سطح {{ level }}
   </h2>
@@ -15,4 +15,10 @@
       بیشتر
     </button>
   </div>
+</div>
+
+<!-- نمایش لودینگ هنگام بارگذاری -->
+<div *ngIf="isLoading" class="loading-overlay">
+  <div class="spinner"></div>
+  <p class="loading-text">در حال بارگذاری...</p>
 </div>

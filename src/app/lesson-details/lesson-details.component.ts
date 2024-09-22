@@ -18,6 +18,7 @@ export class LessonDetailsComponent implements OnInit {
   explanation: string = ''; // ذخیره توضیحات دریافت‌شده
   maxLevel: number = 4; // حداکثر سطح آموزش
   moreDisabled: boolean = false; // وضعیت دکمه "بیشتر"
+  isLoading: boolean = true; // وضعیت لودینگ
 
   constructor(
     private route: ActivatedRoute,
@@ -31,6 +32,7 @@ export class LessonDetailsComponent implements OnInit {
   }
 
   getExplanation() {
+    this.isLoading = true; // شروع لودینگ
     // درخواست API برای دریافت توضیحات درس بر اساس سطح
     this.http
       .get<any>(`https://telegram.webchareh.com/api/LessonDescriptions/get`, {
@@ -42,6 +44,10 @@ export class LessonDetailsComponent implements OnInit {
       })
       .subscribe((response) => {
         this.explanation = response.explanation;
+        this.isLoading = false; // پایان لودینگ پس از دریافت پاسخ
+      }, (error) => {
+        this.isLoading = false; // پایان لودینگ در صورت بروز خطا
+        console.error('Error fetching lesson details:', error);
       });
   }
 

@@ -10,7 +10,7 @@ import { EducationPageComponent } from './education-page/education-page.componen
 import { LessonDetailsComponent } from './lesson-details/lesson-details.component';
 
 export const routes: Routes = [
-    { path: '', component: PhoneInputComponent, canActivate: [AuthGuard] }, // بررسی با AuthGuard
+    { path: '', component: PhoneInputComponent, canActivate: [AuthGuard]}, // بررسی با AuthGuard
     { path: 'verify-code', component: VerifyCodeComponent }, // صفحه تایید کد
     { path: 'select-lesson', component: SelectLessonComponent },
     { path: 'question', component: QuestionPageComponent },

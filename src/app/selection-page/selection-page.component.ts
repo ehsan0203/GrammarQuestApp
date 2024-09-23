@@ -23,4 +23,7 @@ export class SelectionPageComponent {
     // اینجا میتونی روت به صفحه آزمون رو قرار بدی
     this.router.navigate(['/select-lesson']);
   }
+  onAiClick() {
+    this.router.navigate(['/chat']);
+  }
 }

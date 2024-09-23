@@ -7,13 +7,17 @@
       class="message"
       [class.user]="message.isUser"
     >
-      <strong *ngIf="message.isUser">You:</strong>
-      <strong *ngIf="!message.isUser">ChatGPT:</strong>
-      <span>{{ message.text }}</span>
+      <div [ngClass]="message.isUser ? 'message-right' : 'message-left'">
+        <strong *ngIf="message.isUser">You:</strong>
+        <strong *ngIf="!message.isUser">ChatGPT:</strong>
+        <span>{{ message.text }}</span>
+      </div>
     </div>
     <!-- نمایش وضعیت "در حال تایپ" یا "لطفا صبر کنید" -->
     <div *ngIf="isTyping" class="message typing">
-      <strong>ChatGPT is typing...</strong>
+      <div class="message-left">
+        <strong>ChatGPT is typing...</strong>
+      </div>
     </div>
   </div>
 

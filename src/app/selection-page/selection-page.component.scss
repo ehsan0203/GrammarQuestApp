@@ -1,42 +1,40 @@
 .option {
-    flex: 1; /* هر دکمه 50% از ارتفاع صفحه را می‌گیرد */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 32px;
-    font-weight: bold;
-    color: white;
-    width: 100%;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* اضافه کردن انیمیشن */
-  }
-  
-  .container-mobile-select-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Fallback برای مرورگرهای قدیمی */
-    height: 100svh; /* Small Viewport Height */
-    height: 100lvh; /* Large Viewport Height */
-    height: 100dvh; /* Dynamic Viewport Height */
-    background-color: #4F1787; /* رنگ زمینه */
-    max-width: 480px; /* حداکثر عرض */
-    margin: 0 auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-  }
-  
-  .top {
-    background-color: #FB773C; /* رنگ دلخواه از پالت برای دکمه "آموزش" */
-  }
-  
-  .bottom {
-    background-color: #EB3678; /* رنگ دلخواه از پالت برای دکمه "آزمون" */
-  }
-  
-  /* افکت فرورفتگی هنگام کلیک */
-  .option:active {
-    transform: scale(0.95); /* کمی فرورفتگی */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* تغییر سایه برای عمق بیشتر */
-  }
-  
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.container-mobile-select-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #4F1787;
+  max-width: 480px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.top {
+  background-color: #FB773C;
+}
+
+.bottom {
+  background-color: #EB3678;
+}
+
+.ai {
+  background-color: #4F1787; /* رنگ دلخواه برای دکمه "هوش مصنوعی" */
+}
+
+.option:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}

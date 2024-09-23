@@ -3,17 +3,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Fallback برای مرورگرهای قدیمی */
-    height: 100svh; /* Small Viewport Height */
-    height: 100lvh; /* Large Viewport Height */
-    height: 100dvh; /* Dynamic Viewport Height */
+    height: 100vh;
     padding: 20px;
-    background-color: #4f1787; /* رنگ زمینه */
-    max-width: 480px; /* حداکثر عرض */
+    background-color: #4f1787;
+    max-width: 480px;
     margin: 0 auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     position: relative;
-    overflow: hidden;
   }
   
   .chat-box {
@@ -26,13 +22,28 @@
     width: 100%;
   }
   
-  
   .message {
     margin-bottom: 10px;
+    display: flex;
   }
   
-  .message.user {
+  .message-right {
+    background-color: #dcf8c6; /* رنگ برای پیام‌های شما */
+    border-radius: 15px;
+    padding: 10px;
+    margin-left: auto;
+    max-width: 60%;
     text-align: right;
+  }
+  
+  .message-left {
+    background-color: #fff; /* رنگ برای پیام‌های ChatGPT */
+    border-radius: 15px;
+    padding: 10px;
+    margin-right: auto;
+    max-width: 60%;
+    text-align: left;
+    border: 1px solid #ccc;
   }
   
   .message.typing {

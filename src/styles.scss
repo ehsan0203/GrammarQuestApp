@@ -35,7 +35,13 @@ $color-orange: #FB773C;
     overflow: hidden;
   }
   
-  
+  .button-container {
+    margin-top: auto; /* دکمه‌ها همیشه در پایین صفحه قرار می‌گیرند */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: baseline;
+  }
   .phone-content{
     display: flex;
     flex-direction: column;
@@ -99,13 +105,13 @@ $color-orange: #FB773C;
   
   .submit-btn {
     margin-top: 20px;
+
+    background-color: #27ae60; /* رنگ دکمه */
     padding: 10px 20px;
-    background-color: #FB773C; /* رنگ دکمه */
-    color: white;
-    border: none;
-    border-radius: 30px;
     font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
+    color:#fff;
 
   }
   

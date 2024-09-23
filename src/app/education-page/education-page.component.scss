@@ -40,12 +40,7 @@
     transition: background-color 0.3s;
   }
 
-  .button-container {
-    margin-top: auto; /* دکمه‌ها همیشه در پایین صفحه قرار می‌گیرند */
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
+
   .submit-btn, .back-btn {
     padding: 10px 20px;
     font-size: 16px;

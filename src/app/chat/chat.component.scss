@@ -1,0 +1,68 @@
+.container-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Fallback برای مرورگرهای قدیمی */
+    height: 100svh; /* Small Viewport Height */
+    height: 100lvh; /* Large Viewport Height */
+    height: 100dvh; /* Dynamic Viewport Height */
+    padding: 20px;
+    background-color: #4f1787; /* رنگ زمینه */
+    max-width: 480px; /* حداکثر عرض */
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .chat-box {
+    height: 80vh;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 100%;
+  }
+  
+  
+  .message {
+    margin-bottom: 10px;
+  }
+  
+  .message.user {
+    text-align: right;
+  }
+  
+  .message.typing {
+    font-style: italic;
+    color: gray;
+  }
+  
+  .input-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  textarea {
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  

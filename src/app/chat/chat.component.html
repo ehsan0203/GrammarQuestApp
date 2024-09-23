@@ -1,0 +1,27 @@
+<div class="container-mobile">
+  <h2 class="text-white">Chat with OpenAI</h2>
+
+  <div class="chat-box" #chatBox>
+    <div
+      *ngFor="let message of messages"
+      class="message"
+      [class.user]="message.isUser"
+    >
+      <strong *ngIf="message.isUser">You:</strong>
+      <strong *ngIf="!message.isUser">ChatGPT:</strong>
+      <span>{{ message.text }}</span>
+    </div>
+    <!-- نمایش وضعیت "در حال تایپ" یا "لطفا صبر کنید" -->
+    <div *ngIf="isTyping" class="message typing">
+      <strong>ChatGPT is typing...</strong>
+    </div>
+  </div>
+
+  <div class="input-container">
+    <textarea
+      [(ngModel)]="userMessage"
+      placeholder="پیام خود را یادداشت کنید..."
+    ></textarea>
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>

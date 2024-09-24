@@ -15,7 +15,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100vh; /* Fallback برای مرورگرهای قدیمی */
+  height: 100svh; /* Small Viewport Height */
+  height: 100lvh; /* Large Viewport Height */
+  height: 100dvh; /* Dynamic Viewport Height */
   background-color: #4F1787;
   max-width: 480px;
   margin: 0 auto;

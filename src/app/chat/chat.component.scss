@@ -3,7 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh; /* Fallback برای مرورگرهای قدیمی */
+    height: 100svh; /* Small Viewport Height */
+    height: 100lvh; /* Large Viewport Height */
+    height: 100dvh; /* Dynamic Viewport Height */
     padding: 20px;
     background-color: #4f1787;
     max-width: 480px;
@@ -41,7 +44,7 @@
     border-radius: 15px;
     padding: 10px;
     margin-right: auto;
-    max-width: 60%;
+    max-width: 100%;
     text-align: left;
     border: 1px solid #ccc;
   }

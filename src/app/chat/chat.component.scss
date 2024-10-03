@@ -1,52 +1,93 @@
 .container-mobile {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    height: 100vh; /* Fallback برای مرورگرهای قدیمی */
-    height: 100svh; /* Small Viewport Height */
-    height: 100lvh; /* Large Viewport Height */
-    height: 100dvh; /* Dynamic Viewport Height */
+    height: 100vh;
     padding: 20px;
     background-color: #4f1787;
     max-width: 480px;
     margin: 0 auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     position: relative;
+    
   }
-  
+  .chat-box::-webkit-scrollbar {
+    display: none; /* پنهان کردن اسکرول بار */
+    scrollbar-width: none;
+  }
+
   .chat-box {
-    height: 80vh;
+      overflow: scroll; /* همچنان قابلیت اسکرول فعال است */
+  }
+
+  .chat-box {
+    height: 70vh;
     overflow-y: auto;
     margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    width: 100%;
+    padding: 1rem 1rem 50% 1rem;
+    background: url("../../../public/Image/chatpage_background.jpg");
+    box-shadow: 0 0 2rem 1rem black inset;
+    border-radius: 1rem;
+    width: 105%;
   }
-  
+  .chat-profile {
+    background: url("../../../public/Image/gpt-profile.jpg");
+    background-size: cover;
+    border-radius: 1rem;
+    padding-bottom: 2rem;
+    width: 3rem;
+    height: 3rem;
+    float: left;
+  }
+  span[name="gpt-name"] {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 1rem;
+  }
   .message {
     margin-bottom: 10px;
     display: flex;
   }
   
   .message-right {
-    background-color: #dcf8c6; /* رنگ برای پیام‌های شما */
-    border-radius: 15px;
+    background-color: #B2DFDB; 
+    border-radius: 1.5rem 1.5rem 0.1rem 1.5rem;
     padding: 10px;
     margin-left: auto;
     max-width: 60%;
     text-align: right;
+    animation-name: showFade,moveFromRight;
+    animation-duration: 0.3s;
   }
   
   .message-left {
-    background-color: #fff; /* رنگ برای پیام‌های ChatGPT */
-    border-radius: 15px;
+    background-color: #26A69A; 
+    color: aliceblue;
+    border-radius: 1.5rem 1.5rem 1.5rem 0.1rem;
     padding: 10px;
     margin-right: auto;
-    max-width: 100%;
+    max-width: 60%;
     text-align: left;
-    border: 1px solid #ccc;
+    border: 1px solid #26A69A;
+    animation-name: showFade,moveFromLeft;
+    animation-duration: 1s;
+  }
+
+  @keyframes showFade {
+      from {opacity: 0;}
+      to {opacity: 1;}
+  }
+  @keyframes moveFromLeft {
+    from {transform: translateX(-3rem);}
+    to {transform: translateX(0);}
+  }
+  @keyframes moveFromRight {
+    from {transform: translateX(1rem);}
+    to {transform: translateX(0);}
   }
   
   .message.typing {
@@ -58,25 +99,38 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    height: 10%;
+    position: relative;
+    bottom: 15%;
   }
   
   textarea {
     flex-grow: 1;
     padding: 10px;
     margin-right: 10px;
-    border-radius: 5px;
+    border-radius: 0 1rem 1rem 0;
+    border: 1px solid white;
+    background-color: #B9F6CA;
   }
   
   button {
     padding: 10px 20px;
-    background-color: #4caf50;
-    color: white;
+    background-color: #1DE9B6;
+    color: #0c3632;
     border: none;
-    border-radius: 5px;
+    font-weight: bolder;
+    border-radius: 1rem 0 0 1rem;
+    font-family: cursive;
     cursor: pointer;
+    transform: translateX(1rem);
+    transition: 0.3s;
   }
   
   button:hover {
-    background-color: #45a049;
+    background-color: #00C853;
+    transition: 0.3s;
+    transform: translateX(0.5rem);
+    box-shadow: 1rem 0 1rem #263238;
+    border-radius: 1rem 0 0 2rem;
   }
   

@@ -2,49 +2,97 @@
     width: 100%;
     border-top: 1px solid #ccc;
   }
-  
+  .selection-container::-webkit-scrollbar {
+    display: none;
+    scrollbar-width: none;
+  }
   .selection-container {
     display: flex;
+    overflow-y: scroll;
+    overflow-x: hidden;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 30%;
+    background: url("/Image/quiz-background.jpg"); 
+    max-height: 60%;
+    padding: 0 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 2rem 0.5rem inset #263238;
+    filter: contrast(1.5);
   }
   
   .lesson-selection, .level-selection {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: 10px;
+    flex-wrap: wrap;
+    width: 120%;
   }
+  .lesson-selection { 
+    margin-top: 25vh;
+    padding: 2.5rem;
+    justify-content: space-around;
+  }
+  .level-selection {
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
   
   .lesson{
     flex: 1;
+    flex-basis: 30%;
     margin: 5px;
-    padding: 20px;
-    background-color: #EB3678; /* به عنوان مثال */
+    background: linear-gradient(144deg,#39155371, #20175a 50%,#195c618e);
+    color:whitesmoke;
+    font-weight: bolder;
+    font-size: larger;
     text-align: center;
     cursor: pointer;
-    max-width: 90px;
-    height: 90px;
+    height: 5rem;
+    width: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem #263238;
+    transition: 0.3s;
+    margin-top: 0.5rem;
+  }
+
+  .lesson.selected {
+    transform: translateY(-1rem);
+    box-shadow: 0 1rem 1rem -0.5rem #263238;
+    background: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
   }
   .level{
     flex: 1;
-    margin: 5px;
-    padding: 20px;
-    background-color: #FB773C; /* به عنوان مثال */
+    flex-direction: column;
+    flex-basis: 10%;
+    background: linear-gradient(144deg,#FF7043, #FF8F00 50%,#FFFF8D);
+    color:#263238;
+    font-weight: bolder;
+    font-size: small;
     text-align: center;
     cursor: pointer;
-    max-width: 90px;
-    height: 90px;
+    height: 4rem;
+    max-width: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem #263238;
+    margin: 0 0.3rem;
+
+  }
+  .level:hover {
+    background: linear-gradient(90deg,#FF7043, #FF8F00 50%,#FFFF8D);
+    transition: 300ms;
+  }
+  .level.selected {
+    background: linear-gradient(0deg,#76ff4c, #e5ff00 50%,#76ff4c);
+    transform: translateY(-1rem);
+    box-shadow: 0 1rem 1rem -0.5rem #263238;
   }
 
   .selected {
@@ -52,14 +100,77 @@
   }
 
 .back-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .back-btn {
-    background-color: #180161;
+    background: linear-gradient(#B71C1C,#b71c1c7c,#b71c1c7c);
     color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bolder;
+    width: 10rem;
   }
   
+  .back-btn:hover {
+    background: linear-gradient(#B71C1C,#B71C1C,#b71c1c7c);
+  }
+  
+.button-submit {
+  background: linear-gradient(#2ecc71,#2ecc7083,#2ecc7083);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bolder;
+  width: 10rem;
+}
+.button-submit:hover {
+  background: linear-gradient(#2ecc71,#2ecc71,#2ecc7083);
+}
+
+.phone-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-container {
+  margin: 0;
+}
+
+
+.loader {
+  display: inline-grid;
+  width: 80px;
+  aspect-ratio: 1;
+}
+.loader:before,
+.loader:after {
+  content:"";
+  grid-area: 1/1;
+  border-radius: 50%;
+}
+.loader:before {
+  margin: 25%;
+  background: repeating-conic-gradient(#C02942 0 60deg,#0B486B 0 120deg);
+  transform: rotate(0turn) translate(50%) rotate(0turn);
+  animation: l1 3s linear infinite;
+}
+.loader:after {
+  padding: 10%;
+  margin: -10%;
+  background: repeating-conic-gradient(from -15deg,#C02942 0 30deg,#0B486B 0 60deg);
+  mask:conic-gradient(#000 0 0) content-box exclude,conic-gradient(#000 0 0);
+}
+@keyframes l1 {to{transform: rotate(1turn) translate(50%) rotate(-2turn)}}
+
+.loading-overlay {
+  background-color: #9575CD;
+}
+
+
+
+

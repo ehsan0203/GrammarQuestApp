@@ -1,11 +1,13 @@
 <div class="container-mobile-select-page">
-  <div class="option top" (click)="onEducationClick()">
-    <span>آموزش</span>
-  </div>
-  <div class="option bottom" (click)="onExamClick()">
-    <span>آزمون</span>
-  </div>
-  <div class="option ai" (click)="onAiClick()">
-    <span>هوش مصنوعی</span>
+  <div class="container">
+    <div id="one" class="option top" (click)="onEducationClick()">
+      <span name="one" class="select-page-text">آموزش</span>
+    </div>
+    <div id="two" class="option bottom" (click)="onExamClick()">
+      <span name="two" class="select-page-text">آزمون</span>
+    </div>
+    <div id="three" class="option ai" (click)="onAiClick()">
+      <span name="three" class="select-page-text">هوش مصنوعی</span>
+    </div>
   </div>
 </div>

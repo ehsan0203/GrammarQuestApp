@@ -1,17 +1,67 @@
 
 .result-page{
 width: 100%;
+background: url("/Image/result-background.jpg");
+background-size: contain;
+border-radius: 2rem;
+height: 50%;
+box-shadow: 0 0 2rem 1rem inset;
 }
 .score-box {
-    background-color: #e0e0e0;
     border-radius: 10px;
     margin-bottom: 20px;
+    background-color: purple;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+  }
+
+  .score-box[name='one'] {
+    background-color: #00C853;
+    border-bottom: 1rem solid #1B5E20;
+    border-top: 0.5rem solid #00E676;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem #00C853;
+    animation: showResult alternate 1s ease-in-out;
+  }
+  .score-box[name='two'] {
+    background-color: #D50000;
+    border-bottom: 1rem solid #B71C1C;
+    border-top: 0.5rem solid #FF5252;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem #D50000;
+    animation: showResult alternate 1s ease-in-out 0.3s both;
+  }
+  .score-box[name='three'] {
+    background-color: #F57F17;
+    border-bottom: 1rem solid #BF360C;
+    border-top: 0.5rem solid #F9A825;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem #F57F17;
+    animation: showResult alternate 1s ease-in-out 0.6s both;
+  }
+  @keyframes showResult {
+    0% {transform: rotateZ(90deg) scale(0);}
+    80% {transform: rotateZ(0) scale(1.2); box-shadow: 0 0 1rem 0.5rem #4527A0}
+    100% {transform: rotateZ(0) scale(1);}
   }
   
   .btn-primary {
-    background-color: #fb773c;
-    border-color: #fb773c;
-    width: 100%;
+    background: linear-gradient(#b76f1c,#b75a1c7c,#b76f1c7c);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bolder;
+    width: 10rem;
+  }
+  .btn-primary:hover {
+    background: linear-gradient(#B71C1C,#B71C1C,#b71c1c7c);
   }
   
   .container {

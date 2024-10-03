@@ -42,14 +42,26 @@ export class LessonDetailsComponent implements OnInit {
           level: this.level.toString(),
         },
       })
-      .subscribe((response) => {
-        this.explanation = response.explanation;
-        this.isLoading = false; // پایان لودینگ پس از دریافت پاسخ
-      }, (error) => {
-        this.isLoading = false; // پایان لودینگ در صورت بروز خطا
-        console.error('Error fetching lesson details:', error);
-      });
+      .subscribe(
+        (response) => {
+          this.explanation = response.explanation;
+          this.isLoading = false; // پایان لودینگ پس از دریافت پاسخ
+        },
+        (error) => {
+          this.isLoading = false; // پایان لودینگ در صورت بروز خطا
+          if (error.status === 404 && error.error === "Lesson description not found.") {
+            // نمایش پیام هشدار به کاربر
+            alert('درس مورد نظر شما هنوز بارگذاری نشده است.');
+            // هدایت کاربر به صفحه /education
+            this.router.navigate(['/education']);
+          } else {
+            console.error('Error fetching lesson details:', error);
+          }
+        }
+      );
   }
+  
+  
 
   onMoreClick() {
     if (this.level < this.maxLevel) {

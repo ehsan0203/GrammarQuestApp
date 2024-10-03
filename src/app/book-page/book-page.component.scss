@@ -6,7 +6,8 @@
     margin-top: 1rem;
     height: 80%;
     width: 105%;
-    background: url("/Image/edu-background-1.png");
+    background: url("../../../public/Image/backroot.jpg");
+    background-size: contain;
     padding: 1rem;
     border-radius: 1rem;
     box-shadow: 0 0 1rem 0.5rem #263238 inset;
@@ -20,7 +21,7 @@
   }
   
   .lesson {
-    background: linear-gradient(#eb367886,#e74c3c,#eb367886);
+    background: linear-gradient(#004d4077,#004D40,#004d4094);
     color: white;
     font-size: 1.2rem;
     display: flex;

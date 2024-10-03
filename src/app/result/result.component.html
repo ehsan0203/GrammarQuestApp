@@ -3,25 +3,28 @@
     class="result-page d-flex flex-column justify-content-center align-items-center"
   >
     <h1 class="title">Touchstone 2</h1>
+    <br><br>
+    <hr>
+    <br><br>
 
-    <div class="score-box w-100 text-center py-4">
-      <p class="mb-4">
+    <div name="one" class="score-box w-50 text-center py-2 mb-3">
+      <p  class="mb-1">
         تعداد جواب درست: <strong>{{ correctAnswers }}</strong>
       </p>
     </div>
 
-    <div class="score-box w-100 text-center py-4">
-      <p class="mb-4">
+    <div name="two" class="score-box w-50 text-center py-2 mb-3">
+      <p  class="mb-1">
         تعداد جواب غلط: <strong>{{ incorrectAnswers }}</strong>
       </p>
     </div>
 
-    <div class="score-box w-100 text-center py-4">
-      <p class="mb-4">
+    <div name="three"  class="score-box w-50 text-center py-2 mb-5">
+      <p class="mb-1">
         نمره شما: <strong>{{ score }}</strong>
       </p>
     </div>
-
-    <button class="btn btn-primary mt-4" (click)="goBack()">بازگشت</button>
+    <hr>
+    <button class="btn btn-primary mt-5" (click)="goBack()">بازگشت</button>
   </div>
 </div>

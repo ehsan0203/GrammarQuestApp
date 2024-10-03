@@ -1,8 +1,7 @@
 <div class="container-mobile">
   <div class="phone-content">
     <div class="header">
-      <h1 class="title">Touchstone 2</h1>
-      <hr class="divider" />
+      <h1 class="title text-center">Touchstone 2</h1>
     </div>
 
     <div class="selection-container">
@@ -12,66 +11,125 @@
           (click)="selectLesson(1)"
           [ngClass]="{ selected: selectedLesson === 1 }"
         >
-          درس 1
+          <span>درس 1</span>
         </div>
         <div
           class="lesson"
           (click)="selectLesson(2)"
           [ngClass]="{ selected: selectedLesson === 2 }"
         >
-          درس 2
+        <span>درس 2</span>
         </div>
         <div
           class="lesson"
           (click)="selectLesson(3)"
           [ngClass]="{ selected: selectedLesson === 3 }"
         >
-          درس 3
+        <span>درس 3</span>
         </div>
         <div
           class="lesson"
           (click)="selectLesson(4)"
           [ngClass]="{ selected: selectedLesson === 4 }"
         >
-          درس 4
+        <span>درس 4</span>
         </div>
-      </div>
 
-      <div class="level-selection">
         <div
-          class="level"
-          (click)="selectLevel(1)"
-          [ngClass]="{ selected: selectedLevel === 1 }"
+        class="lesson"
+        (click)="selectLesson(5)"
+        [ngClass]="{ selected: selectedLesson === 5 }"
+      >
+      <span>درس 5</span>
+      </div>
+              <div
+          class="lesson"
+          (click)="selectLesson(6)"
+          [ngClass]="{ selected: selectedLesson === 6 }"
         >
-          آسان
+        <span>درس 6</span>
         </div>
-        <div
-          class="level"
-          (click)="selectLevel(2)"
-          [ngClass]="{ selected: selectedLevel === 2 }"
+                <div
+          class="lesson"
+          (click)="selectLesson(7)"
+          [ngClass]="{ selected: selectedLesson === 7 }"
         >
-          متوسط
+        <span>درس 7</span>
         </div>
-        <div
-          class="level"
-          (click)="selectLevel(3)"
-          [ngClass]="{ selected: selectedLevel === 3 }"
+                <div
+          class="lesson"
+          (click)="selectLesson(8)"
+          [ngClass]="{ selected: selectedLesson === 8 }"
         >
-          سخت
+        <span>درس 8</span>
         </div>
-        <div
-          class="level"
-          (click)="selectLevel(4)"
-          [ngClass]="{ selected: selectedLevel === 4 }"
+                <div
+          class="lesson"
+          (click)="selectLesson(9)"
+          [ngClass]="{ selected: selectedLesson === 9 }"
         >
-          خیلی سخت
+        <span>درس 9</span>
         </div>
+                <div
+          class="lesson"
+          (click)="selectLesson(10)"
+          [ngClass]="{ selected: selectedLesson === 10 }"
+        >
+        <span>درس 10</span>
+        </div>
+                <div
+          class="lesson"
+          (click)="selectLesson(11)"
+          [ngClass]="{ selected: selectedLesson === 11 }"
+        >
+        <span>درس 11</span>
+        </div>
+                <div
+          class="lesson"
+          (click)="selectLesson(12)"
+          [ngClass]="{ selected: selectedLesson === 12 }"
+        >
+        <span>درس 12</span>
+        </div> 
       </div>
     </div>
-
+    <div class="level-selection">
+      <div
+        class="level"
+        (click)="selectLevel(1)"
+        [ngClass]="{ selected: selectedLevel === 1 }"
+      >
+      <img src="/Image/emoji1.webp" width="25">
+        <span>آسان</span>
+      </div>
+      <div
+        class="level"
+        (click)="selectLevel(2)"
+        [ngClass]="{ selected: selectedLevel === 2 }"
+      >
+      <img src="/Image/emoji2.webp" width="25">
+        <span>متوسط</span>
+      </div>
+      <div
+        class="level"
+        (click)="selectLevel(3)"
+        [ngClass]="{ selected: selectedLevel === 3 }"
+      >
+      <img src="/Image/emoji3.webp" width="25">
+        <span>سخت</span>
+      </div>
+      <div
+        class="level"
+        (click)="selectLevel(4)"
+        [ngClass]="{ selected: selectedLevel === 4 }"
+      >
+      <img src="/Image/emoji4.webp" width="25">
+       <span>خیلی سخت</span>
+      </div>
+    </div>
     <div class="button-container">
       <button
-        class="submit-btn"
+        class="submit-btn button-submit"
         [disabled]="!isSelectionComplete()"
         (click)="startQuiz()"
       >
@@ -81,9 +139,10 @@
     </div>
   </div>
 
-  <!-- نمایش لودینگ هنگام ارسال درخواست به API -->
+  <!-- نمایش لودینگ هنگام بارگذاری -->
   <div *ngIf="isLoading" class="loading-overlay">
-    <div class="spinner"></div>
-    <p class="loading-text">در حال بارگذاری...</p>
+    <!-- <div class="spinner"></div>
+    <p class="loading-text">در حال بارگذاری...</p> -->
+    <div class="loader"></div>
   </div>
 </div>

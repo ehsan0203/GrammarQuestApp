@@ -1,10 +1,21 @@
 p {
-  max-height: 70vh; /* حداکثر ارتفاع متن 50 درصد ارتفاع صفحه */
-  overflow-y: auto; /* اسکرول عمودی برای متن */
-  padding-right: 10px; /* برای زیبایی هنگام اسکرول */
-  margin-top: 20px;
+  max-height: 50vh; 
+  min-height: 50vh; 
+  overflow-y: scroll;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+  scrollbar-width: none;
+  text-align: justify;
+  direction: rtl;
 }
-
+.blackboard {
+  background: url("../../../public/Image/blackboard.jpg");
+  background-size: cover;
+  scrollbar-width: none;
+  box-shadow: 0 0 1rem 1rem inset #3E2723;
+  border-radius: 1rem;
+  padding: 2rem;
+}
 
 button {
   padding: 10px 20px;
@@ -21,18 +32,37 @@ button:hover {
 
 /* کلاس برای دکمه "بازگشت" */
 .back-button {
-  background-color: #180161;
+  background: linear-gradient(#B71C1C,#b71c1c7c,#b71c1c7c);
   color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bolder;
+  width: 10rem;
+}
+.back-button:hover {
+  background: linear-gradient(#B71C1C,#B71C1C,#b71c1c7c);
 }
 
 /* کلاس برای دکمه "بیشتر" */
 .more-button {
-  background-color: #2ecc71;
+  background: linear-gradient(#2ecc71,#2ecc7083,#2ecc7083);
   color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bolder;
+  width: 10rem;
 }
 
 .more-button:hover {
-  background-color: #27ae60;
+  background: linear-gradient(#2ecc71,#2ecc71,#2ecc7083);
 }
 
 /* دکمه غیرفعال */
@@ -40,4 +70,52 @@ button:disabled {
   background-color: #bdc3c7;
   color: #7f8c8d;
   cursor: not-allowed;
+}
+h2 {
+  font-size: large;
+  font-weight: bolder;
+  background: linear-gradient(#f1faa2,#f1faa2,#f1faa275);
+  padding: 1rem;
+  color: #263238 !important;
+  margin-bottom: -0.5rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.container-mobile {
+  display: flex;
+  justify-content: center;
+}
+
+.button-container {
+  margin-top: 1rem;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  display: inline-grid;
+  width: 80px;
+  aspect-ratio: 1;
+}
+.loader:before,
+.loader:after {
+  content:"";
+  grid-area: 1/1;
+  border-radius: 50%;
+}
+.loader:before {
+  margin: 25%;
+  background: repeating-conic-gradient(#C02942 0 60deg,#0B486B 0 120deg);
+  transform: rotate(0turn) translate(50%) rotate(0turn);
+  animation: l1 3s linear infinite;
+}
+.loader:after {
+  padding: 10%;
+  margin: -10%;
+  background: repeating-conic-gradient(from -15deg,#C02942 0 30deg,#0B486B 0 60deg);
+  mask:conic-gradient(#000 0 0) content-box exclude,conic-gradient(#000 0 0);
+}
+@keyframes l1 {to{transform: rotate(1turn) translate(50%) rotate(-2turn)}}
+
+.loading-overlay {
+  background-color: #9575CD;
 }

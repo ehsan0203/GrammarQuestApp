@@ -9,6 +9,7 @@ import { SelectionPageComponent } from './selection-page/selection-page.componen
 import { EducationPageComponent } from './education-page/education-page.component';
 import { LessonDetailsComponent } from './lesson-details/lesson-details.component';
 import { ChatComponent } from './chat/chat.component';
+import { BookPageComponent } from './book-page/book-page.component';
 
 export const routes: Routes = [
     { path: '', component: PhoneInputComponent, canActivate: [AuthGuard]}, // بررسی با AuthGuard
@@ -20,6 +21,7 @@ export const routes: Routes = [
     { path: 'education', component: EducationPageComponent },
     { path: 'lesson-details/:lessonNumber/:level', component: LessonDetailsComponent },
     { path: 'chat', component: ChatComponent },
+{path:'book',component:BookPageComponent}
 
     
 ];

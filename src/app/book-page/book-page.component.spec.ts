@@ -1,22 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChatComponent } from './chat.component';
+import { EducationPageComponent } from './book-page.component';
 
-describe('ChatComponent', () => {
-  let component: ChatComponent;
-  let fixture: ComponentFixture<ChatComponent>;
+describe('EducationPageComponent', () => {
+  let component: EducationPageComponent;
+  let fixture: ComponentFixture<EducationPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChatComponent]
+      imports: [EducationPageComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ChatComponent);
+    fixture = TestBed.createComponent(EducationPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  
 
   it('should create', () => {
     expect(component).toBeTruthy();

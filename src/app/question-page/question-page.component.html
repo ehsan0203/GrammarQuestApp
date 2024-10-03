@@ -4,16 +4,15 @@
   >
     <h1 class="title">Touchstone 2</h1>
 
-    <!-- نمایش شماره سوال -->
-    <div class="question-number">
-      سوال {{ currentQuestionIndex + 1 }} از {{ questions.length }}
-    </div>
-
     <!-- نمایش سوال -->
     <div class="question-box">
       <p class="question-text">
         {{ questions[currentQuestionIndex]?.questionText }}
       </p>
+      <!-- نمایش شماره سوال -->
+      <div class="question-number">
+        سوال {{ currentQuestionIndex + 1 }} از {{ questions.length }}
+      </div>
     </div>
 
     <!-- گزینه ها -->

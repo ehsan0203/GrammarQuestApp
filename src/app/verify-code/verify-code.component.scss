@@ -21,4 +21,99 @@
     width: 100%;
   }
 
+
+
+  .phone-content {
+    background: url('/Image/login-background.jpg');
+    border-radius: 1.5rem;
+    background-size: cover;
+    display: flex;
+    flex-direction: column ;
+    justify-content: space-evenly;
+}
+.text-logo {
+    background: url("/Image/login-background.jpg");
+    background-size: cover;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2rem 2rem #1A237E;
+    animation: moveShadows 3s alternate infinite ease-in-out;   
+}
+.logo {
+    animation: changeBright 1s alternate infinite ease-in-out;
+    border-radius: 50%;
+    background-color: #6200ea65;
+    box-shadow: 0 0 2rem 1rem #6200ea65;
+    margin-top: 1rem;
+}
+
+.input-container input {
+    background: linear-gradient(45deg,#b39ddb91,#B39DDB,#b39ddb85);
+    box-shadow: 0 0 1px inset;
+    width: 20rem;
+    border: none;
+    animation: changeBright 1s alternate infinite ease-in-out;
+    border-radius: 1rem;
+}
+.input-container input::placeholder {
+    color: #311B92;
+}
+
+.submit-btn {
+    background: linear-gradient(45deg,#b39ddb91,#B39DDB,#b39ddb85);
+    width: 25%;
+    transition: 0.3s;
+    border: none;
+    font-weight: bolder;
+    font-size: large;
+}
+.submit-btn:enabled {
+    background: linear-gradient(45deg,#AB47BC,#AB47BC,#AB47BC);
+    width: 35%;
+    transition: 0.5s;
+    transform: scale(1.2);
+    box-shadow: 0 0 1rem #263238;
+}
+.submit-btn:active {
+    background: linear-gradient(45deg,#AB47BC,#e762ff,#AB47BC);
+    width: 30%;
+    transition: 0.3s;
+}
   
+@keyframes moveShadows {
+  from {box-shadow: 0 2rem 2rem #0c103a;transform: translateY(-1rem);filter: brightness(1.3);border-radius: 2rem;}
+  to {box-shadow: 0 -2rem 2rem #1A237E;transform: translateY(1rem);filter: brightness(1);border-radius: 4rem;}
+}
+@keyframes changeBright {
+  from {filter: brightness(1.5);transform: scale(1.05);}
+  to {filter: brightness(0.9);}
+}
+
+.loader {
+  display: inline-grid;
+  width: 80px;
+  aspect-ratio: 1;
+}
+.loader:before,
+.loader:after {
+  content:"";
+  grid-area: 1/1;
+  border-radius: 50%;
+}
+.loader:before {
+  margin: 25%;
+  background: repeating-conic-gradient(#C02942 0 60deg,#0B486B 0 120deg);
+  transform: rotate(0turn) translate(50%) rotate(0turn);
+  animation: l1 3s linear infinite;
+}
+.loader:after {
+  padding: 10%;
+  margin: -10%;
+  background: repeating-conic-gradient(from -15deg,#C02942 0 30deg,#0B486B 0 60deg);
+  mask:conic-gradient(#000 0 0) content-box exclude,conic-gradient(#000 0 0);
+}
+@keyframes l1 {to{transform: rotate(1turn) translate(50%) rotate(-2turn)}}
+
+.loading-overlay {
+  background-color: #9575CD;
+}

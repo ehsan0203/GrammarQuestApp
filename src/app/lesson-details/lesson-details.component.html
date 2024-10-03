@@ -2,9 +2,9 @@
   <h2 class="text-white text-center">
     توضیحات درس {{ lessonNumber }} - سطح {{ level }}
   </h2>
-  <p class="text-white text-center" [innerHTML]="explanation"></p>
-  <!-- نمایش توضیحات به کاربر -->
-
+  <div class="blackboard">
+    <p class="text-white text-center" [innerHTML]="explanation"></p>
+  </div>
   <div class="button-container">
     <button class="back-button" (click)="onBackClick()">بازگشت</button>
     <button
@@ -19,6 +19,7 @@
 
 <!-- نمایش لودینگ هنگام بارگذاری -->
 <div *ngIf="isLoading" class="loading-overlay">
-  <div class="spinner"></div>
-  <p class="loading-text">در حال بارگذاری...</p>
+  <!-- <div class="spinner"></div>
+  <p class="loading-text">در حال بارگذاری...</p> -->
+  <div class="loader"></div>
 </div>

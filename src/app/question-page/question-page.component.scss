@@ -1,27 +1,41 @@
 .title {
     margin-top: 10px;
     color: #fff;
+    text-shadow: 0 0 1rem;
     font-size: 24px;
+    background: url("../../../public/Image/quiz-background2.png");
+    padding: 1rem;
+    border-radius: 1rem;
   }
   
   .question-box {
-    background-color: #eb3678;
+    background: url("../../../public/Image/quiz-background2.png");
     width: 100%;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 1rem;
     text-align: center;
     direction: ltr;
     height: 200px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
+    box-shadow: -0.5rem 1rem 1px  #2632384b;
+    border-bottom: 0.5rem solid #455A64;
+    animation: moveButtons 1s both;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+    margin-bottom: 10rem;
   }
   
   .question-text {
-    color: white;
+    color: #263238;
+    font-weight: bold;
+    font-family: cursive;
     font-size: 18px;
     line-height: 1.8;
     text-align: left;
+    margin-bottom: 1rem;
   }
   
   .options-container {
@@ -29,91 +43,133 @@
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     width: 100%;
+    
   }
   
   .option {
-    background-color: #fb773c;
+    background: url("../../../public/Image/quiz-background2.png");
     padding: 15px;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 1rem;
     color: white;
     font-weight: bold;
     cursor: pointer;
     direction: ltr;
+    color: #263238;
+    border-bottom: 0.5rem solid #455A64;
+    box-shadow: -0.5rem 1rem 1px  #2632384b;
+    transition: 0.3s;
+    animation: moveButtons 1s both;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
   }
   
 
   .correct {
-    background-color: green;
+    background: #00E676;
+    border-bottom: 0.5rem solid #004D40;
+    box-shadow: 0 0 1rem #00E676;
     color: white;
+    transition: 0.3s;
   }
   
   .incorrect {
-    background-color: red;
+    background: #EF5350;
+    border-bottom: 0.5rem solid #B71C1C;
+    box-shadow: 0 0 1rem #EF5350;
     color: white;
+    transition: 0.3s;
   }
   .back-btn {
-    background-color: #180161;
+    background: linear-gradient(#3614a8,#17016179,#3614a8);
     color: white;
-    padding: 15px 30px;
     border: none;
+    padding: 10px 20px;
+    font-size: 18px;
     border-radius: 8px;
-    font-size: 16px;
     cursor: pointer;
-    margin-bottom: 20px;
-    width: 90%;
+    transition: background-color 0.3s;
+    font-weight: bolder;
+    width: 15rem;
+    height: 3rem;
   }
   
   .back-btn:hover {
-    background-color: #342070;
+    background: linear-gradient(45deg,#3614a8,#17016179,#3614a8);
   }
   .question-number{
-    color: #fff;
+    color: black;
+    background: url("/Image/quiz-background2.png");
+    padding: 0.6rem;
+    border-radius: 1rem;
+    opacity: 0.8;
+    font-weight: bold;
+    box-shadow: 0 0 1rem whitesmoke;
   }
   .modal {
     display: block;
     position: absolute;
     left: 50%;
     top: 50%;
-height: auto;
+    height: auto; 
     width: 100%;
     max-width: 480px;
-    background-color: rgba(79, 23, 135, 0.8); /* رنگ پس‌زمینه نیمه‌شفاف */
     z-index: 1000;
-    padding: 20px;
+    padding: 0.5rem 1rem;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* سایه برای جلوه سه‌بعدی */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 2rem 1rem #871717 inset; 
+    transform: translateY(-5rem);
   }
   
   .modal-content {
-    background-color: #fff;
+    background: url("/Image/quiz-background2.png");
     padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* سایه ملایم برای زیبایی */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     text-align: center;
-    color: #4F1787; /* رنگ اصلی متن */
-    font-family: 'Arial', sans-serif; /* فونت خوانا و ساده */
+    color: #871717; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    text-shadow: 0 0 1rem;
+    animation: moveButtons 1s both;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
   }
   
   .modal-content p {
-    font-size: 18px;
+    font-size: large;
     margin-bottom: 20px;
   }
   
   .modal-content button {
-    background-color: #ff7a59; /* رنگ جذاب برای دکمه */
+    background: linear-gradient(#ff7a59,#ff7a59,#ff7a597e);
+    text-align: center;
+    margin: 0 auto;
     color: white;
     border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 0 20px;
+    font-size: 1.5rem;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
+    font-weight: bolder;
+    width: 15rem;
+    height: 3rem;
+    transition: 0.3s;
   }
   
   .modal-content button:hover {
-    background-color: #ff5a3c; /* رنگ جذاب‌تر هنگام هاور */
+    background: linear-gradient(#ff7a597e,#ff7a59,#ff7a597e);
+    transform: translateY(-0.5rem);
+    transition: 0.3s;
   }
   
   
-  
+  @keyframes moveButtons {
+    0% {transform: scale(0);}
+    40% {transform: scale(1.2);}
+    60% {transform: scale(1);}
+  }
+  .container-mobile {
+    background: url("/Image/quiz-background4.jpg");
+    background-size: contain;
+  }

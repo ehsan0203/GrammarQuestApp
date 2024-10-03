@@ -34,38 +34,79 @@ userAnswers: { questionId: string, isCorrect: boolean, selectedOption: number }[
     }
   }
 
-// انتخاب گزینه توسط کاربر
-selectOption(option: number) {
-  console.log("selectOption Start");
-  this.selectedOption = option;
-  const currentQuestion = this.questions[this.currentQuestionIndex];
-  this.correctAnswer = currentQuestion.correctAnswer; // جواب درست تنظیم می‌شود
-
-  // ذخیره کردن پاسخ کاربر در لیست
-  this.userAnswers.push({
-    questionId: currentQuestion.questionId, // فرض اینکه سوالات دارای یک شناسه منحصر به فرد (id) هستند
-    isCorrect: `option${option}` === this.correctAnswer,
-    selectedOption: option
-  });
-
-  if (`option${option}` === this.correctAnswer) {
-    // اگر جواب درست بود
-    this.isCorrectAnswer = true;
-
-    // بعد از 0.5 ثانیه به سوال بعدی بروید
-    setTimeout(() => {
-      this.nextQuestion();
-    }, 500);
-  } else {
-    // اگر جواب اشتباه بود
-    this.isCorrectAnswer = false;
-
-    // ابتدا کلاس گزینه درست را نمایش دهید
-    setTimeout(() => {
-      this.showExplanationModal(false, currentQuestion.correctAnswerExplanation);
-    }, 1000); // نمایش مدال با تأخیر 0.5 ثانیه
+  selectOption(option: number) {
+    console.log("selectOption Start");
+    this.selectedOption = option;
+    const currentQuestion = this.questions[this.currentQuestionIndex];
+    this.correctAnswer = currentQuestion.correctAnswer; // جواب درست تنظیم می‌شود
+  
+    // حذف کلاس‌های قبلی از تمام گزینه‌ها
+    this.resetOptionClasses();
+  
+    // اضافه کردن کلاس برای گزینه انتخاب شده
+    this.applyOptionClass(option, this.correctAnswer);
+  
+    // ذخیره کردن پاسخ کاربر در لیست
+    this.userAnswers.push({
+      questionId: currentQuestion.questionId, // فرض اینکه سوالات دارای یک شناسه منحصر به فرد (id) هستند
+      isCorrect: `option${option}` === this.correctAnswer,
+      selectedOption: option
+    });
+  
+    if (`option${option}` === this.correctAnswer) {
+      // اگر جواب درست بود
+      this.isCorrectAnswer = true;
+  
+      // اضافه کردن کلاس درست به گزینه صحیح
+      this.markCorrectOption(`option${option}`);
+  
+      // بعد از 0.5 ثانیه به سوال بعدی بروید
+      setTimeout(() => {
+        this.nextQuestion();
+      }, 500);
+    } else {
+      // اگر جواب اشتباه بود
+      this.isCorrectAnswer = false;
+  
+      // اضافه کردن کلاس درست به گزینه صحیح
+      this.markCorrectOption(this.correctAnswer);
+  
+      // نمایش مدال بعد از 1 ثانیه
+      setTimeout(() => {
+        this.showExplanationModal(false, currentQuestion.correctAnswerExplanation);
+      }, 1000); // نمایش مدال با تأخیر
+    }
   }
-}
+  
+  // متدی برای پاک کردن کلاس‌ها از گزینه‌ها
+  resetOptionClasses() {
+    const options = document.querySelectorAll('.option');
+    options.forEach(option => {
+      option.classList.remove('correct', 'incorrect');
+    });
+  }
+  
+  // متدی برای اضافه کردن کلاس به گزینه انتخاب شده
+  applyOptionClass(selectedOption: number, correctAnswer: string) {
+    const selected = document.querySelector(`.option${selectedOption}`);
+    if (selected) {
+      // اگر گزینه انتخاب شده صحیح است، کلاس درست اضافه شود
+      if (`option${selectedOption}` === correctAnswer) {
+        selected.classList.add('correct');
+      } else {
+        selected.classList.add('incorrect');
+      }
+    }
+  }
+  
+  // متدی برای مشخص کردن گزینه صحیح
+  markCorrectOption(correctAnswer: string) {
+    const correct = document.querySelector(`.${correctAnswer}`);
+    if (correct) {
+      correct.classList.add('correct');
+    }
+  }
+  
 
 
 

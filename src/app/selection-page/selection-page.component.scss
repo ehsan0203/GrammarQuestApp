@@ -5,20 +5,31 @@
   align-items: center;
   font-size: 32px;
   font-weight: bold;
-  color: white;
-  width: 100%;
+  color: rgb(255, 255, 255);
+  width: 90%;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 1rem;
 }
+.option:hover{
+  cursor: pointer;
+}
+.container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 90%;
+}
+
+ 
 
 .container-mobile-select-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  height: 100vh; /* Fallback برای مرورگرهای قدیمی */
-  height: 100svh; /* Small Viewport Height */
-  height: 100lvh; /* Large Viewport Height */
-  height: 100dvh; /* Dynamic Viewport Height */
+  height: 100vh;
   background-color: #4F1787;
   max-width: 480px;
   margin: 0 auto;
@@ -26,18 +37,83 @@
 }
 
 .top {
-  background-color: #FB773C;
+  background-image: url("/Image/green-board.jpg");
+  box-shadow: 0 0 2rem black;
+  background-size: cover;
+  border-radius: 2rem;
+  margin-top: 0.5rem;
+  animation-name: Floating;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  z-index: 1;
 }
 
+
 .bottom {
-  background-color: #EB3678;
+  background-image: url("/Image/selectpage2.jpg");
+  box-shadow: 0 0 2rem black;
+  background-size: cover;
+  border-radius: 2rem;
+  animation-name: Floating;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0.3s;
+  z-index: 2;
 }
 
 .ai {
-  background-color: #4F1787; /* رنگ دلخواه برای دکمه "هوش مصنوعی" */
+  background-image: url("/Image/ai-background.jpg");
+  box-shadow: 0 0 2rem black;
+  background-size: cover;
+  border-radius: 2rem;
+  animation-name: Floating;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0.6s;
+  z-index: 3;
 }
 
 .option:active {
   transform: scale(0.95);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.select-page-text {
+  border-radius: 2rem;
+  width: 50%;
+  text-align: center;
+  padding: 1rem;
+  text-shadow: 2px 10px 1rem rgb(31, 0, 37);
+  font-size: x-large;
+}
+.select-page-text[name="one"] {
+  background: linear-gradient(#46db507e,#1B5E20,#1b5e1f7e);
+  color: white;
+  text-shadow: 0 0 0.5rem;
+  font-size: xx-large;
+  box-shadow: 0 1rem 1rem black;
+}
+.select-page-text[name="two"] {
+  background: linear-gradient(#b71c1c75,#B71C1C,#b71c1c75);
+  color: white;
+  box-shadow: 0 1rem 1rem black;
+  font-size: xx-large;
+}
+.select-page-text[name="three"] {
+    background: linear-gradient(#19178780,#191787,#19178780);
+    color: rgb(231, 190, 255);
+    box-shadow: 0 1rem 1rem black;
+}
+@keyframes Floating {
+  from {transform: translateY(0.2rem);}
+  to {transform: translateY(-0.2rem);}
 }
